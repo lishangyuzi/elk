@@ -22,10 +22,10 @@ items:
           symlinks: true
           # json.message_key: log
           # json.keys_under_root: true
-        output.elasticsearch:
-          hosts: ['es-cn-nif1pv8pd000kfcfm.elasticsearch.aliyuncs.com:9200']
-          username: "elastic"
-          password: "tq4jpF7+XLS8g"
+        output.kafka:
+          hosts: ["kafka-service:9092"]
+          topic: log
+          required_acks: 1
         logging.level: info
   - apiVersion: apps/v1
     kind: DaemonSet
