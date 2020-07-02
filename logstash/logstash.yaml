@@ -45,9 +45,10 @@ data:
     output {
       elasticsearch {
         hosts => ["es-cn-nif1pv8pd000kfcfm.elasticsearch.aliyuncs.com:9200"]
-        index => "logstash-%{+YYYY.MM.dd}"
         user => "elastic"
         password => "tq4jpF7+XLS8g"
+        index => "log-%{+YYYY.MM.dd}"
+        template_overwrite => true
         codec => line { format => "%{message}" }
       }
     }
