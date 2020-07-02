@@ -19,6 +19,7 @@ items:
         - type: log
           paths:
             - /var/log/containers/*.log
+          exclude_files: ['istio','node-exporter']
           symlinks: true
           # json.message_key: log
           # json.keys_under_root: true
