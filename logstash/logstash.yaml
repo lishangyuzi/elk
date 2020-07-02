@@ -38,6 +38,7 @@ data:
       kafka {
         bootstrap_servers => "kafka-service:9092"
         topics => ["log"]
+        codec => json
       }
     }
 
@@ -47,6 +48,7 @@ data:
         index => "logstash-%{+YYYY.MM.dd}"
         user => "elastic"
         password => "tq4jpF7+XLS8g"
+        codec => line { format => "%{message}" }
       }
     }
 ---
