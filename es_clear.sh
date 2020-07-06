@@ -12,7 +12,7 @@ for index in $indexs
                       {
                         "range": {
                            "@timestamp": {
-                               "lt": "now-7d",
+                               "lt": "now-30d",
                                "format": "epoch_millis"
                               }
                          }
@@ -22,5 +22,5 @@ for index in $indexs
               }  
          }  
      }'
-     echo "已清除$index 索引内七天前数据~"
+     echo "已清除$index 索引内三十天前数据~"
    done
