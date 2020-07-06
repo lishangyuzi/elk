@@ -13,15 +13,15 @@ spec:
   selector:
     app: kafka
 ---
-# apiVersion: policy/v1beta1
-# kind: PodDisruptionBudget
-# metadata:
-#   name: kafka-pdb
-# spec:
-#   selector:
-#     matchLabels:
-#       app: kafka
-#   minAvailable: 2
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: kafka-pdb
+spec:
+  selector:
+    matchLabels:
+      app: kafka
+  minAvailable: 2
 ---
 apiVersion: apps/v1
 kind: StatefulSet

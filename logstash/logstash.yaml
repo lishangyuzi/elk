@@ -37,7 +37,7 @@ data:
     input {
       kafka {
         bootstrap_servers => "kafka-svc:9092"
-        topics => ["log"]
+        topics => ["log" , "android"]
         codec => json
       }
     }

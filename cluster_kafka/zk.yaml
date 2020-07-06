@@ -27,15 +27,15 @@ spec:
   selector:
     app: zk
 ---
-# apiVersion: policy/v1beta1
-# kind: PodDisruptionBudget
-# metadata:
-#   name: zk-pdb
-# spec:
-#   selector:
-#     matchLabels:
-#       app: zk
-#   maxUnavailable: 1
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: zk-pdb
+spec:
+  selector:
+    matchLabels:
+      app: zk
+  maxUnavailable: 1
 ---
 apiVersion: apps/v1
 kind: StatefulSet
@@ -57,7 +57,7 @@ spec:
     spec:
       # nodeSelector:
       #   travis.io/schedule-only: "kafka"
-      tolerations:
+      # tolerations:
       # - key: "travis.io/schedule-only"
       #   operator: "Equal"
       #   value: "kafka"
