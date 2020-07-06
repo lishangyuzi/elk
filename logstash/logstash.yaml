@@ -36,7 +36,7 @@ data:
   logstash.conf: |-
     input {
       kafka {
-        bootstrap_servers => "kafka-service:9092"
+        bootstrap_servers => "kafka-svc:9092"
         topics => ["log"]
         codec => json
       }

@@ -24,7 +24,7 @@ items:
           # json.message_key: log
           # json.keys_under_root: true
         output.kafka:
-          hosts: ["kafka-service:9092"]
+          hosts: ["kafka-svc:9092"]
           topic: log
           required_acks: 1
         logging.level: info
