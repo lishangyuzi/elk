@@ -42,6 +42,12 @@ data:
       }
     }
 
+    filter {
+      mutate {
+        remove_field => ["beat","input","host","offset","prospector","@version"]
+      }
+    }
+
     output {
       elasticsearch {
         hosts => ["es-cn-nif1pv8pd000kfcfm.elasticsearch.aliyuncs.com:9200"]
