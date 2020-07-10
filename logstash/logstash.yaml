@@ -43,8 +43,13 @@ data:
     }
 
     filter {
+      json {
+          source => "message"
+          target => "msg"
+      }
+
       mutate {
-        remove_field => ["beat","input","host","offset","prospector","@version"]
+        remove_field => ["beat","input","host","offset","prospector","@version","message"]
       }
     }
 
@@ -55,7 +60,6 @@ data:
         password => "tq4jpF7+XLS8g"
         index => "log-%{+YYYY.MM.dd}"
         template_overwrite => true
-        codec => line { format => "%{message}" }
       }
     }
 ---
