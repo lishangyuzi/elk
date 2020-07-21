@@ -43,13 +43,21 @@ data:
     }
 
     filter {
-      json {
+      if ![pod_name]{
+        json {
           source => "message"
           target => "msg"
-      }
-
-      mutate {
-        remove_field => ["beat","input","host","offset","prospector","@version","message"]
+        }
+        mutate {
+          remove_field => ["beat","input","host","offset","prospector","@version","message"]
+        }  
+      } else{
+        mutate {
+          add_field => {
+            "[msg][log]" => "%{[message]}"
+          }
+          remove_field => ["beat","input","host","offset","prospector","@version","message"]
+        }
       }
     }
 
